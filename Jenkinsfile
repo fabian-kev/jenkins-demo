@@ -32,6 +32,7 @@ pipeline {
                 script {
                     gv.test()
                 }
+            }
               
         }
 
