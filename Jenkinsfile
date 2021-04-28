@@ -11,10 +11,6 @@ pipeline {
                 echo "building the app.."
                 echo "building version ${VERSION}"
             }
-
-            steps {
-                echo "building image.."
-            }
         }
 
          stage("test") {
