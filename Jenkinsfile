@@ -38,15 +38,15 @@ pipeline {
 
     post {
         always {
-
+            echo "ALWAYS"
         }
 
         success {
-
+            echo "SUCCESS"
         }
 
         failure {
-
+            echo "FAILURE"
         }
     }
 
