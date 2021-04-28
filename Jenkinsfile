@@ -1,11 +1,19 @@
 pipeline {
     agent any
 
+    environment {
+        VERSION = 'v1.0.0'
+    }
 
     stages {
         stage("build") {
             steps {
                 echo "building the app.."
+                echo "building version ${VERSION}"
+            }
+
+            steps {
+                echo "building image.."
             }
         }
 
@@ -30,15 +38,15 @@ pipeline {
 
     post {
         always {
-            echo "ALWAYS"
+
         }
 
         success {
-            echo "success"
+
         }
 
         failure {
-            echo "failure"
+
         }
     }
 
