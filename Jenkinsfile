@@ -1,3 +1,4 @@
+def gv
 pipeline {
     agent any
 
@@ -6,17 +7,27 @@ pipeline {
     }
 
     stages {
+        stage("init") {
+            steps {
+                script {
+                    gv = load "script.groovy"
+                }
+            }
+        }
         stage("build") {
             steps {
-                echo "building the app.."
-                echo "building version ${VERSION}"
+                gv.build()
             }
         }
 
          stage("test") {
-          
+            // when {
+            //     expression {
+            //         BRANCH_NAME == 'dev'
+            //     }
+            // }
             steps {
-                echo "testing the app..."
+               gv.test()
             }
         }
 
@@ -30,15 +41,15 @@ pipeline {
 
     post {
         always {
-            echo "ALWAYS"
+
         }
 
         success {
-            echo "SUCCESS"
+
         }
 
         failure {
-            echo "FAILURE"
+
         }
     }
 
