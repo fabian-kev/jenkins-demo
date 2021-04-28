@@ -1,4 +1,5 @@
 def gv
+properties([[$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/fabian-kev/jenkins-demo.git/'], pipelineTriggers([githubPush()])])
 pipeline {
     agent any
 
